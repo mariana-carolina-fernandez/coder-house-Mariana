@@ -1,8 +1,11 @@
 package com.example.ProyectoCoder.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Table(name="producto")
@@ -20,6 +23,10 @@ public class ProductoEntity {
     private int stock;
 
     @Column
-    private Float precio;
+    private Double precio;
+
+    @ManyToMany(mappedBy = "products")
+    @JsonIgnore
+    private List<VentasEntity> ventasEntityList;
 
 }

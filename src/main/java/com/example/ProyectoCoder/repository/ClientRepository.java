@@ -9,6 +9,6 @@ import java.util.Optional;
 public interface ClientRepository extends JpaRepository<ClientEntity, Long> {
 
 
-    @Query(value = "SELECT * FROM client c WHERE c.correo = :email",name = "PorEmail", nativeQuery = true)
+    @Query(value = "SELECT * FROM client c WHERE c.correo = :email", nativeQuery = true)
     Optional <ClientEntity> obtenerPorEmail(String email);
 }
